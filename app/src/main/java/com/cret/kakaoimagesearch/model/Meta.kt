@@ -1,7 +1,12 @@
 package com.cret.kakaoimagesearch.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Meta(
-    val is_end: Boolean,
+    @SerializedName("total_count")
+    val total_count: Int,
+    @SerializedName("pageable_count")
     val pageable_count: Int,
-    val total_count: Int
+    @SerializedName("is_end")
+    val is_end: Boolean
 )

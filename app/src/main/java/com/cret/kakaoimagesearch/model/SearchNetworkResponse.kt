@@ -1,6 +1,10 @@
 package com.cret.kakaoimagesearch.model
 
+import com.google.gson.annotations.SerializedName
+
 data class SearchNetworkResponse(
-    val document: List<Document>,
-    val meta: Meta
+    @SerializedName("meta")
+    val meta: Meta,
+    @SerializedName("documents")
+    val documents: List<Document>
 )

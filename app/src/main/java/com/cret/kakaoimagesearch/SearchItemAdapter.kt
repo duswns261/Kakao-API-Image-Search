@@ -1,12 +1,19 @@
 package com.cret.kakaoimagesearch
 
+import android.content.Context
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.cret.kakaoimagesearch.RecyclerViewAdapter.SearchResultViewHolder
+import com.cret.kakaoimagesearch.databinding.SearchItemBinding
 import com.cret.kakaoimagesearch.model.Document
 
-class SearchItemAdapter() : ListAdapter<Document, RecyclerView.ViewHolder>(DIFF) {
+class RecyclerViewAdapter(
+    val context: Context?
+) : ListAdapter<Document, SearchResultViewHolder>(DIFF) {
 
     companion object {
         private val DIFF = object : DiffUtil.ItemCallback<Document>() {
@@ -26,17 +33,32 @@ class SearchItemAdapter() : ListAdapter<Document, RecyclerView.ViewHolder>(DIFF)
         }
     }
 
-    class
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
+    class SearchResultViewHolder(private val binding: SearchItemBinding): RecyclerView.ViewHolder(binding.root){
+        val thumbnailImage = binding.ivSearchImage
+        val category = binding.tvSearchCategory
+        val url = binding.tvSearchUrl
+        val datetime = binding.tvSearchTime
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SearchResultViewHolder {
+        val inflate = LayoutInflater.from(parent.context)
+        return SearchResultViewHolder(SearchItemBinding.inflate(inflate, parent, false))
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+    override fun onBindViewHolder(
+        holder: SearchResultViewHolder,
+        position: Int
+    ) {
+        val item = getItem(position)
+
+        Glide.with(context!!).load(item.thumbnail_url)
+            .fitCenter()
+            .into(holder.thumbnailImage)
+        holder.url.text = item.thumbnail_url
+        holder.category.text = item.display_sitename
+        holder.datetime.text = item.datetime
     }
 }

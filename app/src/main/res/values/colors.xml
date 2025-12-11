@@ -7,7 +7,7 @@
     <color name="app_background">#2D2B2B</color>
 
     <color name="selected_tab_text">#000000</color>
-    <color name="search_category">#FFFFFF</color>
+    <color name="search_category">#000000</color>
     <color name="search_url">#999999</color>
     <color name="search_time">#999999</color>
 </resources>

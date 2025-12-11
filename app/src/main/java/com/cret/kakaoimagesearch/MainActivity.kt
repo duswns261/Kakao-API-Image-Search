@@ -6,14 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.cret.kakaoimagesearch.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var recyclerViewAdapter
+//    private lateinit var recyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -28,6 +27,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        setupViewPager()
+    }
+
+    private fun setupViewPager() {
         binding.viewPager.adapter = ViewPageAdapter(this)
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
@@ -38,3 +41,5 @@ class MainActivity : AppCompatActivity() {
         }.attach()
     }
 }
+
+
