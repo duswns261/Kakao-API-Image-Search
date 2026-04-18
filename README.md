@@ -66,3 +66,5 @@ com.cret.kakaoimagesearch
 
 ---
 *본 프로젝트는 안드로이드 개발 학습 목적으로 작성되었습니다.*
+
+26.04.18일 기준으로 README 파일은 두 가지로 README.md, READEMEClaude.md가 있습니다. Antigravity와 Claude CLI를 통해 제작되었고 차이와 더 나은점을 확인하기 위해 우선 둘 다 남겨뒀습니다.
