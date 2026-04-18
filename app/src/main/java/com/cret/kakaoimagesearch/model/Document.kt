@@ -1,12 +1,22 @@
 package com.cret.kakaoimagesearch.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Document(
+    @SerializedName("collection")
     val collection: String,
-    val datetime: String,
-    val display_sitename: String,
-    val doc_url: String,
-    val height: Int,
-    val image_url: String,
+    @SerializedName("thumbnail_url")
     val thumbnail_url: String,
+    @SerializedName("image_url")
+    val image_url: String,
+    @SerializedName("width")
     val width: Int,
+    @SerializedName("height")
+    val height: Int,
+    @SerializedName("display_sitename")
+    val display_sitename: String,
+    @SerializedName("doc_url")
+    val doc_url: String,
+    @SerializedName("datetime")
+    val datetime: String
 )
